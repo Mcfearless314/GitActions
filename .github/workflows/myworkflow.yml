@@ -24,6 +24,18 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v3
+        with:
+         dotnet-version: |
+           8.0.x
+
+
+      - name: Create new console app
+        run: dotnet new console
+
+      - name: Run the default console app
+        run: dotnet run
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
