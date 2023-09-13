@@ -31,23 +31,28 @@ jobs:
            8.0.x
       - name: Create test project
         run: dotnet new nunit
-
+        working-directory: ./tests
+        
       - name: Show me the test file
         run: cat UnitTest1.cs
-
+        working-directory: ./tests
+        
       - name: Run the test
         run: dotnet test
-
+        working-directory: ./tests
 
       - name: Create new console app
-        run: dotnet new console --force
+        run: dotnet new console
+        working-directory: ./console
 
       - name: Run the default console app
         run: dotnet run
+        working-directory: ./console
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
+        
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
